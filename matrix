@@ -1,37 +1,26 @@
-A=[]
-n=int(input("Enter N for N x N matrix : "))
-print("Enter the element ::>")
-for i in range(n):
-    row=[]
-    for j in range(n):
-        row.append(int(input()))
-        A.append(row)
-        print(A)
-        print("Display Array In Matrix Form")
-        for i in range(n):
-            for j in range(n):
-                print(A[i][j], end=" ")
-                print()
-                B=[]
-                n=int(input("Enter N for N x N matrix : "))
-                print("Enter the element ::>")
-                for i in range(n):
-                    row=[]
-                    for j in range(n):
-                        row.append(int(input()))
-                        B.append(row)
-                        print(B)
-                        print("Display Array In Matrix Form")
-                        for i in range(n):
-                            for j in range(n):
-                                print(B[i][j], end=" ")
-                                print()
-                                result = [[0,0,0], [0,0,0], [0,0,0]]
-                                for i in range(n):
-                                    for j in range(len(A[0])):
-                                        result[i][j] = A[i][j] + B[i][j]
-                                        print("Resultant Matrix is ::>")
-                                        for r in result:
-                                            print("Resultant Matrix is ::>",r)
-                                            
-                                            ПО СУТИ СВОЕЙ ПРОГА ДОЛЖНА РАБОТАТЬ, ЕСЛИ ОНА НЕ ЗАРАБОТАЕТ, ТО Я НЕ ЗНАЮ ЧТО МНЕ ДЕЛАТЬ, ПОТОМУ ЧТО Я КАМЕНЩИК И РАБОТАЮ ТРИ ДНЯ, БЕЗ ЗАРПЛАТЫ BRUUUUH!!!!
+#Сложение матриц#
+
+import numpy as p
+
+ar1 = p.matrix([[11,24,23],[22,37,93],[83,93,10]])      #Создаём матрицу №1#
+ar2 = p.matrix([[23,47,12],[23,75,34],[19,30,29]])      #Cоздаём матрицу №2#
+res = p.matrix(p.zeros((3,3)))
+print('\nМатрица ar1 :\n',ar1)                          #Выводим значение матрицы №1#
+print('\nМатрица ar2 :\n', ar2)                         #Выводим значение матрицы №2#
+for x in range(ar1.shape[1]):
+    for y in range(ar2.shape[0]):
+        res[x,y] = ar1[x,y] + ar2[x,y]                  #Производим сложение матриц#
+
+print('\nРезультат :\n', res)                           #Выводим результат сложения матриц#
+
+
+#Перемножение матриц#
+
+import numpy as p
+
+ar1 = p.matrix([[24,26,23],[22,7,93],[3,92,10]])        #Создаём матрицу №1#
+ar2 = p.matrix([[23,58,2],[21,75,34],[19,98,29]])       #Создаём матрицу №2#
+res = p.matrix(p.zeros((3,3)))
+print('\nМатрица ar1 :\n',ar1)                          #Выводим значение матрицы №1#
+print('\nМатрица ar2 :\n', ar2)                         #Выводим значение матрицы №2#
+print('\nРезультат перемножения матриц :\n', p.dot(ar1,ar2))           #Выводим результат перемножения матриц#
