@@ -1,0 +1,49 @@
+import openpyxl, random
+from openpyxl import load_workbook
+from openpyxl.styles import Font, Color, colors
+wb = load_workbook('./Profsouz.xlsx')
+print(wb.sheetnames)
+sheet = wb['Месяц|Сдача']
+sheet.title
+anotherSheet = wb.active
+anotherSheet
+for row in range(2,12):
+    sheet = wb['Месяц|Сдача']
+    a = random.randint(0,1)
+    if a>=1:
+        sheet.cell(column=2, row=row, value="+")
+        sheet = wb['Отдых']
+        sheet.cell(column=3, row=row, value="Одобрено")
+
+    else:
+        sheet.cell(column=2, row=row, value="-")
+        sheet = wb['Отдых']
+        sheet.cell(column=3, row=row, value="Не одобрено")
+
+sheet = wb['Месяц|Сдача']
+for ro in range(2,12):
+    sheet = wb['Месяц|Сдача']
+    a = random.randint(0,2)
+    if a>1:
+        sheet.cell(column=3, row=ro, value="Ноябрь")
+        sheet = wb['Отдых']
+        sheet.cell(column=2, row=ro, value="Альфа")
+    elif a<1:
+        sheet.cell(column=3, row=ro, value="Сентябрь")
+        sheet = wb['Отдых']
+        sheet.cell(column=2, row=ro, value="Кит")
+    else:
+        sheet.cell(column=3, row=ro, value="Октябрь")
+        sheet = wb['Отдых']
+        sheet.cell(column=2, row=ro, value="Янтарный")
+wb.save('Profsouz_test.xlsx')
+
+sheet = wb['Месяц|Сдача']
+for i in range(1,12):
+    print(sheet['A'+str(i)].value,sheet['B'+str(i)].value,sheet['C'+str(i)].value)
+
+sheet = wb['Отдых']
+print('--- END ---')
+for i in range(1,12):
+    print(sheet['A'+str(i)].value,sheet['B'+str(i)].value,sheet['C'+str(i)].value)
+
